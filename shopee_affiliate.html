@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,20 +27,21 @@
             return "";
         }
 
-        // Function to handle the affiliate link click
-        function handleAffiliateClick(link) {
+        // Function to redirect to the Shopee affiliate link after setting the cookie
+        function redirectToAffiliate() {
             // Set the cookie with the affiliate ID
             setCookie("shopeeAffiliate", "12311860050", 30); // Affiliate ID is set, expires in 30 days
 
             // Redirect to the Shopee affiliate link
-            window.location.href = link;
+            window.location.href = "https://s.shopee.com.my/5AaXCDxWBW"; // Shopee affiliate link
         }
+
+        // Automatically redirect when the page loads
+        window.onload = redirectToAffiliate;
     </script>
 </head>
 <body>
-    <!-- Shopee affiliate link -->
-    <a href="https://s.shopee.com.my/5AaXCDxWBW" onclick="handleAffiliateClick(this.href); return false;">
-        Shop on Shopee
-    </a>
+    <!-- Content can be shown briefly before the redirect if needed -->
+    <p>Redirecting...</p>
 </body>
 </html>
