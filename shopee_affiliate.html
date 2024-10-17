@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee Affiliate</title>
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiration in days
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            let cookieName = name + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookieArray = decodedCookie.split(';');
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i].trim();
+                if (cookie.indexOf(cookieName) === 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Function to handle the affiliate link click
+        function handleAffiliateClick(link) {
+            // Set the cookie with the affiliate ID
+            setCookie("shopeeAffiliate", "12311860050", 30); // Affiliate ID is set, expires in 30 days
+
+            // Redirect to the Shopee affiliate link
+            window.location.href = link;
+        }
+    </script>
+</head>
+<body>
+    <!-- Shopee affiliate link -->
+    <a href="https://s.shopee.com.my/5AaXCDxWBW" onclick="handleAffiliateClick(this.href); return false;">
+        Shop on Shopee
+    </a>
+</body>
+</html>
