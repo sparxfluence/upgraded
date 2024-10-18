@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee Affiliate</title>
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiration in days
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Function to open two windows (Shopee and Google) after setting the cookie
+        function redirectToMultipleLinks() {
+            // Set the cookie with the affiliate ID
+            setCookie("shopeeAffiliate", "12311860050", 30); // Affiliate ID is set, expires in 30 days
+
+            // Open the Shopee affiliate link in a new window
+            window.open("https://s.shopee.com.my/5AaXCDxWBW", "_blank");
+
+            // Open Google in a new window
+            window.open("https://www.google.com", "_blank");
+
+            // Optionally close the current page or leave it open
+            // window.close(); // Uncomment this if you want to close the current tab after redirecting
+        }
+
+        // Automatically trigger the function when the page loads
+        window.onload = redirectToMultipleLinks;
+    </script>
+</head>
+<body>
+    <p>Redirecting to Shopee and Google...</p>
+</body>
+</html>
